@@ -1,14 +1,7 @@
-FROM python:3
+FROM python:3.7-slim
 
-RUN apt-get update -y && \
-apt-get install -y python3-pip \
-python-dev
+RUN pip install flask
 
-WORKDIR /app
-
-RUN pip install Flask
-COPY . .
-
-EXPOSE 5000
+COPY ac03.py /app.py
 
 CMD ["python", "./app.py"]
